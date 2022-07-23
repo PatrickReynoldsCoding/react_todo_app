@@ -3,11 +3,11 @@ const router = express.Router();
 
 
 // import controllers
-const { getTest } = require("../controllers/test")
+const TodoController = require("../controllers/test")
 
 // import middleware
 
 // api routes
-router.get('/test', getTest);
+router.post('/test', TodoController.create);
 
 module.exports = router;
