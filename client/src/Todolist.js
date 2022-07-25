@@ -5,8 +5,8 @@ import Todo from './Todo'
 export default function Todolist({ todos }) {
   return (
     todos.map(todo => {
-      console.log(todo.message)
-      return <Todo key={todo._id} todo={todo.message} />
+      //render a todo with props
+      return <Todo key={todo._id} todo={todo.message} complete={todo.complete} /> 
     })
   )
 }

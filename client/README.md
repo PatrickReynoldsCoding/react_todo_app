@@ -1,3 +1,10 @@
+This project was finished with help from these tutorials:
+https://www.youtube.com/watch?v=MEab_a19ZGk&list=PL4cUxeGkcC9iJ_KkrkBZWZRHVwnzLIoUE&index=9
+
+The project was inspired by the following video:
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
