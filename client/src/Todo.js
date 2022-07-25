@@ -5,7 +5,7 @@
      <div>
       <label>
         <input type='checkbox' checked = {todo.complete}/>
-        {todo.name}
+        {todo.message}
       </label>
       </div>
    )
