@@ -6,19 +6,14 @@ import { BrowserRouter, routes, Route } from 'react-router-dom'
 
 // apis
 import { getData } from "./functions/getData";
+import { addTodo } from './functions/addTodo';
 
 
 function App() {
   const [todos, setTodos] = useState([]) //object destructoring
   const todoNameRef = useRef()
-  // const todoListRef = useRef()
 
-  // function clearList() {
-  //   todoListRef.current = []
-  // }
-
-  
-
+// when it forst loads it gets the db todos
   useEffect(() => {
     getData() // api function
     .then((res) => setTodos(res))
@@ -26,14 +21,28 @@ function App() {
   }, []); // this is the dependancy array. it means the function will only fetch once
 
 
-  function handleAddTodo(e) { //adds todo from input
+  const handleAddTodo = async (e) => { //adds todo from input
     const message = todoNameRef.current.value
     if (message === '') return
+    const newTodo = { id: uuidv4(), message: message, complete: false}
     setTodos(todos => {
-     return [...todos, { id: uuidv4(), message: message, complete: false}]
+     return [...todos, newTodo]
   })
+  //add newTodo to DB
+    addTodo(newTodo)
+
+
   todoNameRef.current.value = null //wipes textbox
+  // saveTodosToDB
+  console.log(todos)
   }
+
+  // function saveTodosToDB(todos) {
+  // //api to save todos
+  // todos.preventDefault() // this prevents the page from refreshing, as submit buttons tend to refresh by default
+
+
+  // }
 
 return (
 <>

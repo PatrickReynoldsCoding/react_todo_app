@@ -6,7 +6,7 @@ export default function Todolist({ todos }) {
   return (
     todos.map(todo => {
       //render a todo with props
-      return <Todo key={todo._id} todo={todo.message} complete={todo.complete} /> 
+      return <Todo key={todo._id} obId={todo._id} todo={todo.message} complete={todo.complete} /> 
     })
   )
 }
