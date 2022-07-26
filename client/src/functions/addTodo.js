@@ -8,6 +8,6 @@ export const addTodo = async (todo) => {
         }
       });
       
-      const json = await res.json();
+      const json = await res.json(); 
   } catch (err) {}
 };
