@@ -1,6 +1,6 @@
 import Todolist from './Todolist';
 import React, {useState, useRef, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import { BrowserRouter, routes, Route } from 'react-router-dom'
 
 
@@ -13,18 +13,18 @@ function App() {
   const [todos, setTodos] = useState([]) //object destructoring
   const todoNameRef = useRef()
 
-// when it forst loads it gets the db todos
+// when it first loads it gets the db todos
   useEffect(() => {
     getData() // api function
     .then((res) => setTodos(res))
     .catch((err) => console.log(err));
-  }, []); // this is the dependancy array. it means the function will only fetch once
+  }, [todos]); // this is the dependancy array. it means the function will run everytime the todos array is changed
 
 
   const handleAddTodo = async (e) => { //adds todo from input
     const message = todoNameRef.current.value
     if (message === '') return
-    const newTodo = { id: uuidv4(), message: message, complete: false}
+    const newTodo = {message: message, complete: false}
     setTodos(todos => {
      return [...todos, newTodo]
   })
@@ -37,16 +37,22 @@ function App() {
   console.log(todos)
   }
 
-  // function saveTodosToDB(todos) {
-  // //api to save todos
-  // todos.preventDefault() // this prevents the page from refreshing, as submit buttons tend to refresh by default
 
+  //update the complete props in the todo via checkbox and upload to db
+  const toggleComplete = (id) => {
+    const newTodos = [...todos]
+    const todo = newTodos.find(todo => todo._id === id)
+    console.log(newTodos)
+    todo.complete = !todo.complete
+    setTodos(newTodos)
+    console.log(todos)
+  }
 
   // }
 
 return (
 <>
-  <Todolist todos={todos}/>
+  <Todolist todos={todos} toggleComplete={toggleComplete}/>
   <input ref={todoNameRef} type="text" />
   <button onClick={handleAddTodo}>Add Todo</button>
   <button>Clear Complete</button>
