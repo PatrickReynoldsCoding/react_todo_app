@@ -5,7 +5,8 @@ import Todo from './Todo'
 export default function Todolist({ todos }) {
   return (
     todos.map(todo => {
-      return <Todo key={todo.id} todo={todo} />
+      //render a todo with props
+      return <Todo key={todo._id} todo={todo.message} complete={todo.complete} /> 
     })
   )
 }
