@@ -7,22 +7,6 @@ import { BrowserRouter, routes, Route } from 'react-router-dom'
 // apis
 import { getData } from "./functions/getData";
 
-// function App() {
-// 	const [data, setData] = useState([]);
-
-// 	useEffect(() => {
-// 		getData()
-// 			.then((res) => setData(res.message))
-// 			.catch((err) => console.log(err));
-// 	}, []);
-
-// 	return (
-// 		<div className="App">
-// 			<h1>{data}</h1>
-// 		</div>
-// 	);
-// }
-
 
 function App() {
   const [todos, setTodos] = useState([]) //object destructoring
@@ -52,9 +36,6 @@ function App() {
   }
 
 return (
-  // <div className="App">
-  //   <h1>{console.log(todos)}</h1>
-  // </div>
 <>
   <Todolist todos={todos}/>
   <input ref={todoNameRef} type="text" />
