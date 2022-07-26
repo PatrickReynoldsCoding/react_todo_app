@@ -11,14 +11,8 @@ import { getData } from "./functions/getData";
 function App() {
   const [todos, setTodos] = useState([]) //object destructoring
   const todoNameRef = useRef()
-  // const todoListRef = useRef()
 
-  // function clearList() {
-  //   todoListRef.current = []
-  // }
-
-  
-
+// when it forst loads it gets the db todos
   useEffect(() => {
     getData() // api function
     .then((res) => setTodos(res))
@@ -26,7 +20,7 @@ function App() {
   }, []); // this is the dependancy array. it means the function will only fetch once
 
 
-  function handleAddTodo(e) { //adds todo from input
+  function handleAddTodo() { //adds todo from input
     const message = todoNameRef.current.value
     if (message === '') return
     setTodos(todos => {
@@ -35,12 +29,17 @@ function App() {
   todoNameRef.current.value = null //wipes textbox
   }
 
+function saveTodosToDb() {
+
+}
+
 return (
 <>
   <Todolist todos={todos}/>
   <input ref={todoNameRef} type="text" />
   <button onClick={handleAddTodo}>Add Todo</button>
   <button>Clear Complete</button>
+  <button onClick={saveTodosToDb}>save Todos</button>
   <div>{todos.length} left to do </div>
 </> 
   );

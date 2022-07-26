@@ -5,8 +5,8 @@ import React from 'react'
    return (
      <div>
       <label>
-        <input type='checkbox'checked ={props.complete}/>
-        {props.todo}
+        <input type='checkbox' checked ={props.complete}/>
+        {props.todo} {props.obId}
       </label>
       </div>
    )
