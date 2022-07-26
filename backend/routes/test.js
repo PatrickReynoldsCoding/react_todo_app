@@ -12,7 +12,11 @@ const TodoController = require("../controllers/test")
 // get all todo in DB
 router.get('/', TodoController.showAll);
 
-// create todo in DB
+// create one todo in DB
 router.post('/test', TodoController.create);
+
+// update all todos in DB
+
+
 
 module.exports = router;

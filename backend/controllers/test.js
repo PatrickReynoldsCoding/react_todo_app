@@ -22,6 +22,11 @@ const TodoController = {
       // ]
       
   },
+
+    update: async (req, res) => {
+
+    },
+
   showAll: async (req, res) => {
     Todo.find((err, todos) => {
       if (err) {

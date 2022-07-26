@@ -6,6 +6,7 @@ import { BrowserRouter, routes, Route } from 'react-router-dom'
 
 // apis
 import { getData } from "./functions/getData";
+import { addTodo } from './functions/addTodo';
 
 
 function App() {
@@ -20,18 +21,28 @@ function App() {
   }, []); // this is the dependancy array. it means the function will only fetch once
 
 
-  function handleAddTodo() { //adds todo from input
+  const handleAddTodo = async (e) => { //adds todo from input
     const message = todoNameRef.current.value
     if (message === '') return
+    const newTodo = { id: uuidv4(), message: message, complete: false}
     setTodos(todos => {
-     return [...todos, { id: uuidv4(), message: message, complete: false}]
+     return [...todos, newTodo]
   })
+  //add newTodo to DB
+    addTodo(newTodo)
+
+
   todoNameRef.current.value = null //wipes textbox
+  // saveTodosToDB
+  console.log(todos)
   }
 
-function saveTodosToDb() {
+  // function saveTodosToDB(todos) {
+  // //api to save todos
+  // todos.preventDefault() // this prevents the page from refreshing, as submit buttons tend to refresh by default
 
-}
+
+  // }
 
 return (
 <>
@@ -39,7 +50,6 @@ return (
   <input ref={todoNameRef} type="text" />
   <button onClick={handleAddTodo}>Add Todo</button>
   <button>Clear Complete</button>
-  <button onClick={saveTodosToDb}>save Todos</button>
   <div>{todos.length} left to do </div>
 </> 
   );
