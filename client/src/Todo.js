@@ -1,12 +1,12 @@
 //type rfc
 import React from 'react'
- 
- export default function todo({ todo, complete }) {
+ // props are passed to the function
+ export default function Todo(props) { 
    return (
      <div>
       <label>
-        <input type='checkbox'checked ={complete}/>
-        {todo}
+        <input type='checkbox'checked ={props.complete}/>
+        {props.todo}
       </label>
       </div>
    )
