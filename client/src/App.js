@@ -8,6 +8,7 @@ import { getData } from "./functions/getData";
 import { addTodo } from "./functions/addTodo";
 import { updateChecked } from "./functions/updatechecked";
 import { deleteTodos } from "./functions/deleteTodos";
+import { deleteCompleted } from "./functions/deleteCompleted";
 
 function App() {
   const [todos, setTodos] = useState([]); //object destructoring
@@ -51,7 +52,7 @@ function App() {
       <Todolist todos={todos} toggleComplete={toggleComplete} />
       <input ref={todoNameRef} type="text" />
       <button onClick={handleAddTodo}>Add Todo</button>
-      <button>Clear Complete</button>
+      <button onClick={deleteCompleted}>Clear Complete</button>
       <button onClick={deleteTodos}>Delete all!!!</button>
       <div>{todos.length} left to do </div>
     </>
