@@ -20,7 +20,7 @@ const TodoController = {
     try {
       await Todo.deleteMany();
 
-      res.status(200);
+      res.status(200).send("all todos deleted");
     } catch (error) {
       res.status(400).json({ error: error.message });
     }
@@ -31,11 +31,12 @@ const TodoController = {
       console.log(req.params)
       const todo = await Todo.findById(req.params.id);
       // findByIdAndUpdate( 1st parameter == object to change, 2nd parameter == an object that contains the property we want to update )
-      await Todo.findByIdAndUpdate(req.params.id, {
+      const updateTodo = await Todo.findByIdAndUpdate(req.params.id, {
         complete: !todo.complete
       })
+      res.status(200).send("Updated!")
     } catch (error) {
-      res.status(400).json({ error: error.message });
+      res.status(400).send("Error: Can't find ID...")
     }
   },
 

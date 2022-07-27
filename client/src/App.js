@@ -6,6 +6,7 @@ import { BrowserRouter, routes, Route } from "react-router-dom";
 // apis
 import { getData } from "./functions/getData";
 import { addTodo } from "./functions/addTodo";
+import { updateChecked } from "./functions/updatechecked";
 import { deleteTodos } from "./functions/deleteTodos";
 
 function App() {
@@ -40,16 +41,7 @@ function App() {
   //update the complete props in the todo via checkbox and upload to db
   const toggleComplete = (id) => {
     // patch 
-    const newTodos = [...todos];
-    const todo = newTodos.find((todo) => todo._id === id);
-    todo.complete = !todo.complete;
-    setTodos(newTodos);
-    console.log(newTodos);
-    deleteTodos();
-    
-    newTodos.map((todo) => {
-      addTodo(todo)
-    })
+    updateChecked(id)
   };
 
   // }
