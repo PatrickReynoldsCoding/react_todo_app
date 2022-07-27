@@ -54,7 +54,7 @@ function App() {
       <button onClick={handleAddTodo}>Add Todo</button>
       <button onClick={deleteCompleted}>Clear Complete</button>
       <button onClick={deleteTodos}>Delete all!!!</button>
-      <div>{todos.length} left to do </div>
+      <div>{todos.filter(value => value.complete === true).length} left to do </div>
     </>
   );
 }
