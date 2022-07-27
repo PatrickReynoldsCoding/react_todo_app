@@ -1,9 +1,12 @@
+Todo:
+findOneAndUpdate for checkboxes
+delete all if complete
+
+
 This project was finished with help from these tutorials:
 https://www.youtube.com/watch?v=MEab_a19ZGk&list=PL4cUxeGkcC9iJ_KkrkBZWZRHVwnzLIoUE&index=9
 
 The project was inspired by the following video:
-
-
 
 # Getting Started with Create React App
 
@@ -77,5 +80,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-### Issues
-will the todos render if sent?
