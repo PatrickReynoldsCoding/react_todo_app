@@ -16,6 +16,17 @@ const TodoController = {
     }
   },
 
+  deleteCompleted: async (req, res) => {
+    try {
+      await Todo.deleteMany({complete: true});
+
+      res.status(200)//
+    } catch (error) {
+
+      res.status(400)//
+    }
+  },
+
   delete: async (req, res) => {
     try {
       await Todo.deleteMany();
@@ -28,15 +39,15 @@ const TodoController = {
 
   updateChecked: async (req, res) => {
     try {
-      console.log(req.params)
+      console.log(req.params);
       const todo = await Todo.findById(req.params.id);
       // findByIdAndUpdate( 1st parameter == object to change, 2nd parameter == an object that contains the property we want to update )
       const updateTodo = await Todo.findByIdAndUpdate(req.params.id, {
-        complete: !todo.complete
-      })
-      res.status(200).send("Updated!")
+        complete: !todo.complete,
+      });
+      res.status(200).send(updateTodo);
     } catch (error) {
-      res.status(400).send("Error: Can't find ID...")
+      res.status(400).send("Error: Can't find ID...");
     }
   },
 

@@ -40,8 +40,8 @@ function App() {
 
   //update the complete props in the todo via checkbox and upload to db
   const toggleComplete = (id) => {
-    // patch 
-    updateChecked(id)
+    // patch
+    updateChecked(id);
   };
 
   // }

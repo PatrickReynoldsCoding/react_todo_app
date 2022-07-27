@@ -18,6 +18,9 @@ router.post("/test", TodoController.create);
 router.patch("/:id", TodoController.updateChecked);
 
 // update all todos in DB
+router.delete("/deleteCompleted", TodoController.deleteCompleted);
+
+// update all todos in DB
 router.delete("/deleteAll", TodoController.delete);
 
 module.exports = router;
