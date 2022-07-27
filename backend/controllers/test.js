@@ -52,7 +52,7 @@ const TodoController = {
   },
 
   showAll: async (req, res) => {
-    Todo.find((err, todos) => {
+    Todo.find((err, todos) => { //this is a common callback pattern. 1st parameter = fail, 2nd = success
       if (err) {
         throw err;
       }
@@ -61,7 +61,7 @@ const TodoController = {
       // res.json({
       //   todos: allTodos
       // })
-      res.status(200).json(todos);
+      res.status(200).json(todos); //.json = .send + .stringify + sets headers
     });
   },
   // showById: watch part 6 (8mins) to show how to get from params
