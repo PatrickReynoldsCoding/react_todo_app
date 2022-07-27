@@ -14,8 +14,8 @@ router.get("/", TodoController.showAll);
 // create one todo in DB
 router.post("/test", TodoController.create);
 
-// // update one by id
-// router.post("/update/:id", TodoController.updateOne);
+// update one by id
+router.patch("/:id", TodoController.updateChecked);
 
 // update all todos in DB
 router.delete("/deleteAll", TodoController.delete);

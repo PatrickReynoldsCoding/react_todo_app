@@ -26,14 +26,18 @@ const TodoController = {
     }
   },
 
-  // updateOne: async (req, res) => {
-  //   try {
-  //     Todo.findByIdAndUpdate({_id:  })
-
-  //   } catch (error) {
-  //     res.status(400).json({ error: error.message });
-  //   }
-  // },
+  updateChecked: async (req, res) => {
+    try {
+      console.log(req.params)
+      const todo = await Todo.findById(req.params.id);
+      // findByIdAndUpdate( 1st parameter == object to change, 2nd parameter == an object that contains the property we want to update )
+      await Todo.findByIdAndUpdate(req.params.id, {
+        complete: !todo.complete
+      })
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  },
 
   showAll: async (req, res) => {
     Todo.find((err, todos) => {
