@@ -24,7 +24,7 @@ function App() {
   // when it first loads it gets the db todos
   useEffect(() => {
     pullTodos();
-  }, [Todos]); // this is the dependancy array. it means the function will run everytime the todos array is changed
+  }, [todos]); // this is the dependancy array. it means the function will run everytime the todos array is changed
   
   
 
