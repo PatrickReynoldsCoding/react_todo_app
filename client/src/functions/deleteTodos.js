@@ -6,5 +6,6 @@ export const deleteTodos = async (todo) => {
         "Content-Type": "application/json",
       },
     });
+    console.log("Deleting all todos");
   } catch (err) {}
 };

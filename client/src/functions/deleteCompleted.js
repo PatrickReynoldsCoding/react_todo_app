@@ -6,5 +6,6 @@ export const deleteCompleted = async () => {
         "Content-Type": "application/json",
       },
     });
+    console.log("Deleting completed");
   } catch (err) {}
 };

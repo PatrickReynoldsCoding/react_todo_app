@@ -7,7 +7,7 @@ export const addTodo = async (todo) => {
         "Content-Type": "application/json",
       },
     });
-
+    console.log("Adding todo");
     // const json = await res.json(); // not sure why this line is needed?
   } catch (err) {}
 };

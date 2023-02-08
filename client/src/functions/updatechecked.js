@@ -6,5 +6,6 @@ export const updateChecked = async (todoId) => {
         "Content-Type": "application/json",
       },
     });
+    console.log(`updating completed status of ${todoId}`);
   } catch (err) {}
 };
